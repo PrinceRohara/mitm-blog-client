@@ -10,9 +10,11 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Settings from "./pages/settings/Settings";
 import { Context } from "./context/Context";
+import Testing from "./pages/testing/Testing";
 
 function App() {
   const user = useContext(Context);
+
   return (
     <>
       <TopBar />
@@ -20,8 +22,11 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
 
-        <Route path="register" element={user ? <Home /> : <Register />} />
-        <Route path="login" element={user ? <Home /> : <Login />} />
+        {/* <Route path="register" element={user ? <Home /> : <Register />} /> */}
+        <Route path="register" element={<Register />} />
+        {/* <Route path="login" element={user ? <Home /> : <Login />} /> */}
+        <Route path="login" element={<Login />} />
+        <Route path="testing" element={<Testing />} />
 
         <Route path="write" element={user ? <Write /> : <Register />} />
         <Route path="settings" element={user ? <Settings /> : <Home />} />

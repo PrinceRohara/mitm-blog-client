@@ -10,6 +10,8 @@ const Login = () => {
   const passwordRef = useRef();
   const { user, dispatch, isFetching } = useContext(Context);
 
+  console.log("login page hahh");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
@@ -19,8 +21,11 @@ const Login = () => {
         password: passwordRef.current.value,
       });
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+      window.location.replace("/");
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE" });
+      console.log(error);
+      console.log(error.message, "err :message");
     }
   };
   console.log(user);

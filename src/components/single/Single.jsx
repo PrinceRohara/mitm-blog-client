@@ -3,7 +3,7 @@ import { SinglePost } from "../singlePost/SinglePost";
 
 const Single = () => {
   return (
-    <div className="single flex">
+    <div className="single  md:flex">
       {/* post */}
       <SinglePost />
       <SideBar />

@@ -1,14 +1,18 @@
 import "./post.css";
 import { Link } from "react-router-dom";
 const Post = ({ post }) => {
+  const PF = "http://localhost:8000/images/";
+
   return (
     <div className="post w-96 mx-6 mb-10">
       {post.photo && (
-        <img
-          className="w-full h-72 object-cover rounded-md"
-          src={post.photo}
-          alt=""
-        />
+        <Link to={`/post/${post._id}`}>
+          <img
+            className="w-full h-72 object-cover rounded-md"
+            src={PF + post.photo}
+            alt=""
+          />
+        </Link>
       )}
 
       <div className="postInfo flex flex-col items-center ">

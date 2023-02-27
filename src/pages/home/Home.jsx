@@ -32,7 +32,7 @@ const Home = () => {
       <Header />
       <div className="flex">
         <Posts posts={posts} />
-        <SideBar />
+        {/* <SideBar /> */}
       </div>
     </>
   );

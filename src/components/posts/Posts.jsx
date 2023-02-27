@@ -5,7 +5,7 @@ const Posts = ({ posts }) => {
   console.log("component posts", posts);
 
   return (
-    <div className="posts basis-3/4 flex flex-wrap m-5 ">
+    <div className="max-w-7xl mx-auto posts flex md:flex-row flex-wrap m-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
       {posts.map((p) => (
         <Post post={p} />
       ))}
