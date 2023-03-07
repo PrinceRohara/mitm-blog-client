@@ -15,20 +15,25 @@ export const SinglePost = () => {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("http://localhost:8000/api/posts/" + path);
+      const res = await axios.get(
+        "https://mitm-blogs.cyclic.app/api/posts/" + path
+      );
       console.log(res);
       setPost(res.data);
     };
 
     getPost();
   }, [path]);
-  const PF = "http://localhost:8000/images/";
+  const PF = "https://mitm-blogs.cyclic.app/images/";
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/posts/${post._id}`, {
-        data: { username: user.username },
-      });
+      await axios.delete(
+        `https://mitm-blogs.cyclic.app/api/posts/${post._id}`,
+        {
+          data: { username: user.username },
+        }
+      );
       window.location.replace("/");
     } catch (error) {
       console.log(error);

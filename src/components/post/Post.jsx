@@ -1,7 +1,7 @@
 import "./post.css";
 import { Link } from "react-router-dom";
 const Post = ({ post }) => {
-  const PF = "http://localhost:8000/images/";
+  const PF = "https://mitm-blogs.cyclic.app/images/";
 
   return (
     <div className="post w-96 mx-6 mb-10">

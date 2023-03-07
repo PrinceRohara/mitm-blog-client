@@ -13,7 +13,7 @@ const Home = () => {
 
   const fetchApi = async () => {
     const response = await axios.get(
-      "http://localhost:8000/api/posts" + search
+      "https://mitm-blogs.cyclic.app/api/posts" + search
     );
     console.log(response);
 

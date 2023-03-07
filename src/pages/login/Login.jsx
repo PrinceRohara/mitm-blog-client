@@ -10,25 +10,31 @@ const Login = () => {
   const passwordRef = useRef();
   const { user, dispatch, isFetching } = useContext(Context);
 
-  console.log("login page hahh");
+  // console.log("login page hahh");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("http://localhost:8000/api/auth/login", {
-        username: userRef.current.value,
-        password: passwordRef.current.value,
-      });
+      const res = await axios.post(
+        "https://mitm-blogs.cyclic.app/api/auth/login",
+        {
+          username: userRef.current.value,
+          password: passwordRef.current.value,
+        }
+      );
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       window.location.replace("/");
     } catch (error) {
       dispatch({ type: "LOGIN_FAILURE" });
-      console.log(error);
-      console.log(error.message, "err :message");
+      if (error.response.data === "wrong Credentials") {
+        alert("Username or Password is wrong");
+      }
+      // console.log(error.response.data);
+      // console.log(error.message, "err :message");
     }
   };
-  console.log(user);
+  // console.log(user);
 
   return (
     <div className="login items-center justify-center bg-yellow-500  bg-opacity-25">

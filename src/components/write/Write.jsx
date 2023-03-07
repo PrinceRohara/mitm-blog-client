@@ -22,14 +22,17 @@ const Write = () => {
       data.append("file", file);
       newPost.photo = filename;
       try {
-        await axios.post("http://localhost:8000/api/upload", data);
+        await axios.post("https://mitm-blogs.cyclic.app/api/upload", data);
       } catch (error) {
         console.log(error);
       }
     }
 
     try {
-      const res = await axios.post("http://localhost:8000/api/posts", newPost);
+      const res = await axios.post(
+        "https://mitm-blogs.cyclic.app/api/posts",
+        newPost
+      );
       window.location.replace("/post/" + res.data._id);
     } catch (error) {
       console.log(error);
